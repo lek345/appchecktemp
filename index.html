@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>โปรแกรมตรวจอุณหภูมิ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome JS</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+       
+    </style>
+</head>
+<body>
+
+    <h3>โปรแกรมตรวจสอบอุณหภูมิ</h3>
+    
+    <!-- ช่องกรอกตัวเลข และ ปุ่มกด -->
+    กรอกอุณหภูมิ: <input type="number" id="tempInput">
+    <button onclick="checkTemp()">ตรวจผล</button>
+
+    <!-- พื้นที่แสดงคำตอบ -->
+    <h1 id="result">...</h1>
+
+    <script>
+    function checkTemp() {
+        // 1. ดึงตัวเลขจากช่องกรอกมาใส่ตัวแปร t
+        let t = parseFloat(document.getElementById("tempInput").value);
+        let output = "";
+
+        // 2. ใช้เงื่อนไข if-else เหมือนใน Python
+        if (t >= 40 && t <= 50) {
+            output = "too hot";
+        } else if (t >= 30 && t < 40) {
+            output = "hot";
+        } else if (t >= 20 && t < 30) {
+            output = "normal";
+        } else if (t >= 10 && t < 30) {
+            output = "cold";
+        } else if (t >= 0 && t < 10) {
+            output = "very cold";
+        } else {
+            output = "error/invalid";
+        }
+
+        // 3. สั่งให้คำตอบไปแสดงที่หน้าจอ
+        document.getElementById("result").innerText = output;
+    }
+    </script>
+
+</body>
+</html>
